@@ -84,7 +84,7 @@ extension `Initialization.Witness Tests`.Integration {
 
     @Test
     func `a custom Initializing conformer produces a move-only Element`() {
-        let factory = Fixture.UniqueFactory()
+        let factory = Fixture.Unique.Factory()
         let made = factory.make()
         #expect(made.count == 0)
     }

@@ -16,6 +16,7 @@ import Testing
 @Suite
 struct `Standard Library Integration Tests` {
     @Suite struct Unit {}
+    @Suite struct `Edge Case` {}
     @Suite struct Integration {}
 }
 

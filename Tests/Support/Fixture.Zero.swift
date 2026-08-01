@@ -18,7 +18,9 @@ extension Fixture {
     /// that `make()` is reusable through a borrow.
     public struct Zero: Initializing {
         public init() {}
-
-        public func make() -> Int { 0 }
     }
+}
+
+extension Fixture.Zero {
+    public func make() -> Int { 0 }
 }

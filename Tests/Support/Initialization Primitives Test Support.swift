@@ -41,6 +41,10 @@ extension Fixture {
     /// `throws(T.Failure)` threads the conformer's typed error channel through: an
     /// infallible conformer (`Failure == Never`) makes this call site need no `try`,
     /// while a fallible one propagates its precise error type.
+    // swift-linter:disable:next generic throws missing never
+    // REASON: test-only helper, called a handful of times per test — not a
+    // tight loop or per-token path, so the [IMPL-042] duplication criteria
+    // don't hold.
     public static func make<T: Initiable & ~Copyable>() throws(T.Failure) -> T {
         try T()
     }

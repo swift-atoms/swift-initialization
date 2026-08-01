@@ -17,14 +17,16 @@ extension Fixture {
     /// `Failure != Never` requires `try` at the call site and through the
     /// ``Initiable/initializer`` bridge, while infallible conformers stay try-free.
     public struct Fallible: Initiable, Equatable {
-        /// The typed error this conformer's construction reports.
-        public enum Failure: Swift.Error, Equatable {
-            case refused
-        }
-
         /// Always fails — the fixture exists to exercise the throwing path.
         public init() throws(Failure) {
             throw .refused
         }
+    }
+}
+
+extension Fixture.Fallible {
+    /// The typed error this conformer's construction reports.
+    public enum Failure: Swift.Error, Equatable {
+        case refused
     }
 }

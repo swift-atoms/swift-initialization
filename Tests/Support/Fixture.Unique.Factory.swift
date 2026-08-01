@@ -11,16 +11,18 @@
 
 public import Initialization_Primitives
 
-extension Fixture {
+extension Fixture.Unique {
     /// An ``Initializing`` (active-producer) conformer whose `Element` is **move-only**
     /// (`Fixture.Unique`). Compile-proves the headline capability that
     /// `Initialization.\`Protocol\`` admits `Element: ~Copyable` — a factory may
     /// *produce* move-only values, the case the closure-backed `Initialization.Witness`
     /// (Copyable-element-limited) cannot wrap, so it must be exercised through a direct
     /// conformer.
-    public struct UniqueFactory: Initializing {
+    public struct Factory: Initializing {
         public init() {}
-
-        public func make() -> Fixture.Unique { Fixture.Unique() }
     }
+}
+
+extension Fixture.Unique.Factory {
+    public func make() -> Fixture.Unique { Fixture.Unique() }
 }

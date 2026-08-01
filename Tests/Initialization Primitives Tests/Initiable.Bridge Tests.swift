@@ -16,6 +16,7 @@ import Testing
 struct `Initiable Bridge Tests` {
     @Suite struct Unit {}
     @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
 }
 
 // MARK: - Unit
