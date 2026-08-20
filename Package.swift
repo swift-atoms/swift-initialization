@@ -1,15 +1,15 @@
-// swift-tools-version: 6.3.3
+// swift-tools-version: 6.4
 
 import PackageDescription
 
 let package = Package(
     name: "swift-initialization-primitives",
     platforms: [
-        .macOS("27"),
-        .iOS("27"),
-        .tvOS("27"),
-        .watchOS("27"),
-        .visionOS("27"),
+        .macOS(.v27),
+        .iOS(.v27),
+        .tvOS(.v27),
+        .watchOS(.v27),
+        .visionOS(.v27),
     ],
     products: [
         // MARK: - Namespace
@@ -54,8 +54,7 @@ let package = Package(
             targets: ["Initialization Primitives Test Support"]
         ),
     ],
-    dependencies: [
-    ],
+    dependencies: [],
     targets: [
         // MARK: - Namespace
         .target(
@@ -67,7 +66,7 @@ let package = Package(
         .target(
             name: "Initialization Protocol",
             dependencies: [
-                "Initialization Primitive",
+                "Initialization Primitive"
             ]
         ),
 
@@ -75,7 +74,7 @@ let package = Package(
         .target(
             name: "Initialization Witness Primitives",
             dependencies: [
-                "Initialization Protocol",
+                "Initialization Protocol"
             ]
         ),
 
@@ -83,7 +82,7 @@ let package = Package(
         .target(
             name: "Initiable",
             dependencies: [
-                "Initialization Witness Primitives",
+                "Initialization Witness Primitives"
             ]
         ),
 
@@ -102,7 +101,7 @@ let package = Package(
         .target(
             name: "Initialization Primitives Standard Library Integration",
             dependencies: [
-                "Initiable",
+                "Initiable"
             ]
         ),
 
@@ -110,7 +109,7 @@ let package = Package(
         .target(
             name: "Initialization Primitives Test Support",
             dependencies: [
-                "Initialization Primitives",
+                "Initialization Primitives"
             ],
             path: "Tests/Support"
         ),
