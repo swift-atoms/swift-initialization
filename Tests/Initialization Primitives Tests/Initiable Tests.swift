@@ -1,14 +1,3 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-primitives open source project
-//
-// Copyright (c) 2024-2026 Coen ten Thije Boonkkamp and the swift-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Initialization_Primitives_Test_Support
 import Testing
 
@@ -19,8 +8,6 @@ struct `Initiable Tests` {
     @Suite struct Integration {}
     @Suite(.serialized) struct Performance {}
 }
-
-// MARK: - Unit
 
 extension `Initiable Tests`.Unit {
 
@@ -37,8 +24,6 @@ extension `Initiable Tests`.Unit {
     }
 }
 
-// MARK: - Edge Case
-
 extension `Initiable Tests`.`Edge Case` {
 
     @Test
@@ -54,8 +39,6 @@ extension `Initiable Tests`.`Edge Case` {
     }
 }
 
-// MARK: - Integration
-
 extension `Initiable Tests`.Integration {
 
     @Test
@@ -67,8 +50,6 @@ extension `Initiable Tests`.Integration {
         #expect(bag.elements == [1, 2])
     }
 }
-
-// MARK: - Performance
 
 extension `Initiable Tests`.Performance {
 

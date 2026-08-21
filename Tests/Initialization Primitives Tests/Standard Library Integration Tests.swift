@@ -1,14 +1,3 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-primitives open source project
-//
-// Copyright (c) 2024-2026 Coen ten Thije Boonkkamp and the swift-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Initialization_Primitives_Standard_Library_Integration
 import Initialization_Primitives_Test_Support
 import Testing
@@ -19,8 +8,6 @@ struct `Standard Library Integration Tests` {
     @Suite struct `Edge Case` {}
     @Suite struct Integration {}
 }
-
-// MARK: - Unit
 
 extension `Standard Library Integration Tests`.Unit {
 
@@ -43,8 +30,6 @@ extension `Standard Library Integration Tests`.Unit {
         #expect(substring.isEmpty)
     }
 }
-
-// MARK: - Integration
 
 extension `Standard Library Integration Tests`.Integration {
 

@@ -1,14 +1,3 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-primitives open source project
-//
-// Copyright (c) 2024-2026 Coen ten Thije Boonkkamp and the swift-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Initialization_Primitives_Test_Support
 import Testing
 
@@ -18,8 +7,6 @@ struct `Initialization.Witness Tests` {
     @Suite struct `Edge Case` {}
     @Suite struct Integration {}
 }
-
-// MARK: - Unit
 
 extension `Initialization.Witness Tests`.Unit {
 
@@ -48,8 +35,6 @@ extension `Initialization.Witness Tests`.Unit {
     }
 }
 
-// MARK: - Edge Case
-
 extension `Initialization.Witness Tests`.`Edge Case` {
 
     @Test
@@ -63,8 +48,6 @@ extension `Initialization.Witness Tests`.`Edge Case` {
         }
     }
 }
-
-// MARK: - Integration
 
 extension `Initialization.Witness Tests`.Integration {
 

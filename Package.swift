@@ -12,43 +12,37 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        // MARK: - Namespace
+
         .library(
             name: "Initialization Primitive",
             targets: ["Initialization Primitive"]
         ),
 
-        // MARK: - Protocol
         .library(
             name: "Initialization Protocol",
             targets: ["Initialization Protocol"]
         ),
 
-        // MARK: - Witness
         .library(
             name: "Initialization Witness Primitives",
             targets: ["Initialization Witness Primitives"]
         ),
 
-        // MARK: - Attachable
         .library(
             name: "Initiable",
             targets: ["Initiable"]
         ),
 
-        // MARK: - Umbrella
         .library(
             name: "Initialization Primitives",
             targets: ["Initialization Primitives"]
         ),
 
-        // MARK: - Standard Library Integration
         .library(
             name: "Initialization Primitives Standard Library Integration",
             targets: ["Initialization Primitives Standard Library Integration"]
         ),
 
-        // MARK: - Test Support
         .library(
             name: "Initialization Primitives Test Support",
             targets: ["Initialization Primitives Test Support"]
@@ -56,13 +50,12 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        // MARK: - Namespace
+
         .target(
             name: "Initialization Primitive",
             dependencies: []
         ),
 
-        // MARK: - Protocol
         .target(
             name: "Initialization Protocol",
             dependencies: [
@@ -70,7 +63,6 @@ let package = Package(
             ]
         ),
 
-        // MARK: - Witness
         .target(
             name: "Initialization Witness Primitives",
             dependencies: [
@@ -78,7 +70,6 @@ let package = Package(
             ]
         ),
 
-        // MARK: - Attachable
         .target(
             name: "Initiable",
             dependencies: [
@@ -86,7 +77,6 @@ let package = Package(
             ]
         ),
 
-        // MARK: - Umbrella
         .target(
             name: "Initialization Primitives",
             dependencies: [
@@ -97,7 +87,6 @@ let package = Package(
             ]
         ),
 
-        // MARK: - Standard Library Integration
         .target(
             name: "Initialization Primitives Standard Library Integration",
             dependencies: [
@@ -105,7 +94,6 @@ let package = Package(
             ]
         ),
 
-        // MARK: - Test Support
         .target(
             name: "Initialization Primitives Test Support",
             dependencies: [
@@ -114,7 +102,6 @@ let package = Package(
             path: "Tests/Support"
         ),
 
-        // MARK: - Tests
         .testTarget(
             name: "Initialization Primitives Tests",
             dependencies: [

@@ -1,14 +1,3 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-primitives open source project
-//
-// Copyright (c) 2024-2026 Coen ten Thije Boonkkamp and the swift-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Initialization_Primitives_Test_Support
 import Testing
 
@@ -18,8 +7,6 @@ struct `Initiable Bridge Tests` {
     @Suite struct `Edge Case` {}
     @Suite struct Integration {}
 }
-
-// MARK: - Unit
 
 extension `Initiable Bridge Tests`.Unit {
 
@@ -34,12 +21,10 @@ extension `Initiable Bridge Tests`.Unit {
         let witness = Fixture.Bag.initializer
         var made = witness.make()
         made.append(1)
-        // A second call is unaffected by mutation of the first product.
+
         #expect(witness.make().elements.isEmpty)
     }
 }
-
-// MARK: - Edge Case
 
 extension `Initiable Bridge Tests`.`Edge Case` {
 

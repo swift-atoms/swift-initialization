@@ -1,24 +1,11 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-primitives open source project
-//
-// Copyright (c) 2024-2026 Coen ten Thije Boonkkamp and the swift-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 public import Initialization_Primitives
 
 extension Fixture {
-    /// The canonical `Initiable` shape for a Copyable value type: starts in its
-    /// empty state (`count == 0`).
+
     public struct Empty: Initiable, Equatable {
-        /// Element count — `0` in the empty state a fresh value starts from.
+
         public var count: Int
 
-        /// Constructs the empty value (`count == 0`).
         public init() {
             self.count = 0
         }
