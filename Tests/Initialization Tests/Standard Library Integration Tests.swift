@@ -1,5 +1,5 @@
-import Initialization_Primitives_Standard_Library_Integration
-import Initialization_Primitives_Test_Support
+import Initialization_Standard_Library_Integration
+import Initialization_Test_Support
 import Testing
 
 @Suite

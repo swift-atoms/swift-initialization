@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-initialization-primitives",
+    name: "swift-initialization",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -24,8 +24,8 @@ let package = Package(
         ),
 
         .library(
-            name: "Initialization Witness Primitives",
-            targets: ["Initialization Witness Primitives"]
+            name: "Initialization Witness",
+            targets: ["Initialization Witness"]
         ),
 
         .library(
@@ -34,18 +34,18 @@ let package = Package(
         ),
 
         .library(
-            name: "Initialization Primitives",
-            targets: ["Initialization Primitives"]
+            name: "Initialization",
+            targets: ["Initialization"]
         ),
 
         .library(
-            name: "Initialization Primitives Standard Library Integration",
-            targets: ["Initialization Primitives Standard Library Integration"]
+            name: "Initialization Standard Library Integration",
+            targets: ["Initialization Standard Library Integration"]
         ),
 
         .library(
-            name: "Initialization Primitives Test Support",
-            targets: ["Initialization Primitives Test Support"]
+            name: "Initialization Test Support",
+            targets: ["Initialization Test Support"]
         ),
     ],
     dependencies: [],
@@ -64,7 +64,7 @@ let package = Package(
         ),
 
         .target(
-            name: "Initialization Witness Primitives",
+            name: "Initialization Witness",
             dependencies: [
                 "Initialization Protocol"
             ]
@@ -73,41 +73,41 @@ let package = Package(
         .target(
             name: "Initiable",
             dependencies: [
-                "Initialization Witness Primitives"
+                "Initialization Witness"
             ]
         ),
 
         .target(
-            name: "Initialization Primitives",
+            name: "Initialization",
             dependencies: [
                 "Initialization Primitive",
                 "Initialization Protocol",
-                "Initialization Witness Primitives",
+                "Initialization Witness",
                 "Initiable",
             ]
         ),
 
         .target(
-            name: "Initialization Primitives Standard Library Integration",
+            name: "Initialization Standard Library Integration",
             dependencies: [
                 "Initiable"
             ]
         ),
 
         .target(
-            name: "Initialization Primitives Test Support",
+            name: "Initialization Test Support",
             dependencies: [
-                "Initialization Primitives"
+                "Initialization"
             ],
             path: "Tests/Support"
         ),
 
         .testTarget(
-            name: "Initialization Primitives Tests",
+            name: "Initialization Tests",
             dependencies: [
-                "Initialization Primitives",
-                "Initialization Primitives Standard Library Integration",
-                "Initialization Primitives Test Support",
+                "Initialization",
+                "Initialization Standard Library Integration",
+                "Initialization Test Support",
             ]
         ),
     ],

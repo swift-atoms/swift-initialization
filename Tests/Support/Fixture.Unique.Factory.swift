@@ -1,4 +1,4 @@
-public import Initialization_Primitives
+public import Initialization
 
 extension Fixture.Unique {
 
