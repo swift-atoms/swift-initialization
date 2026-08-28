@@ -1,3 +1,3 @@
-public import Initialization
+public import Initiable
 
 extension String: Initiable {}

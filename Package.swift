@@ -14,6 +14,26 @@ let package = Package(
     products: [
 
         .library(
+            name: "Initialization Primitive",
+            targets: ["Initialization Primitive"]
+        ),
+
+        .library(
+            name: "Initialization Protocol",
+            targets: ["Initialization Protocol"]
+        ),
+
+        .library(
+            name: "Initialization Witness",
+            targets: ["Initialization Witness"]
+        ),
+
+        .library(
+            name: "Initiable",
+            targets: ["Initiable"]
+        ),
+
+        .library(
             name: "Initialization",
             targets: ["Initialization"]
         ),
@@ -24,45 +44,70 @@ let package = Package(
         ),
 
         .library(
-            name: "Initialization Apple Foundation Integration",
-            targets: ["Initialization Apple Foundation Integration"]
+            name: "Initialization Test Support",
+            targets: ["Initialization Test Support"]
         ),
     ],
     dependencies: [],
     targets: [
 
         .target(
-            name: "Initialization",
+            name: "Initialization Primitive",
             dependencies: []
+        ),
+
+        .target(
+            name: "Initialization Protocol",
+            dependencies: [
+                "Initialization Primitive"
+            ]
+        ),
+
+        .target(
+            name: "Initialization Witness",
+            dependencies: [
+                "Initialization Protocol"
+            ]
+        ),
+
+        .target(
+            name: "Initiable",
+            dependencies: [
+                "Initialization Witness"
+            ]
+        ),
+
+        .target(
+            name: "Initialization",
+            dependencies: [
+                "Initialization Primitive",
+                "Initialization Protocol",
+                "Initialization Witness",
+                "Initiable",
+            ]
         ),
 
         .target(
             name: "Initialization Standard Library Integration",
             dependencies: [
-                "Initialization"
+                "Initiable"
             ]
         ),
 
         .target(
-            name: "Initialization Apple Foundation Integration",
+            name: "Initialization Test Support",
             dependencies: [
-                "Initialization",
-                "Initialization Standard Library Integration",
-            ]
+                "Initialization"
+            ],
+            path: "Tests/Support"
         ),
 
         .testTarget(
             name: "Initialization Tests",
             dependencies: [
-                "Initialization"
-            ]
-        ),
-
-        .testTarget(
-            name: "Initialization Standard Library Integration Tests",
-            dependencies: [
                 "Initialization",
                 "Initialization Standard Library Integration",
+                "Initialization Test Support",
             ]
         ),
     ],
