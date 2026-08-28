@@ -14,8 +14,8 @@ let package = Package(
     products: [
 
         .library(
-            name: "Initialization Primitive",
-            targets: ["Initialization Primitive"]
+            name: "Initialization",
+            targets: ["Initialization"]
         ),
 
         .library(
@@ -34,11 +34,6 @@ let package = Package(
         ),
 
         .library(
-            name: "Initialization",
-            targets: ["Initialization"]
-        ),
-
-        .library(
             name: "Initialization Standard Library Integration",
             targets: ["Initialization Standard Library Integration"]
         ),
@@ -52,62 +47,77 @@ let package = Package(
     targets: [
 
         .target(
-            name: "Initialization Primitive",
+            name: "Initialization",
             dependencies: []
         ),
 
         .target(
             name: "Initialization Protocol",
             dependencies: [
-                "Initialization Primitive"
+                .target(name: "Initialization")
             ]
         ),
 
         .target(
             name: "Initialization Witness",
             dependencies: [
-                "Initialization Protocol"
+                .target(name: "Initialization Protocol")
             ]
         ),
 
         .target(
             name: "Initiable",
             dependencies: [
-                "Initialization Witness"
-            ]
-        ),
-
-        .target(
-            name: "Initialization",
-            dependencies: [
-                "Initialization Primitive",
-                "Initialization Protocol",
-                "Initialization Witness",
-                "Initiable",
+                .target(name: "Initialization Witness")
             ]
         ),
 
         .target(
             name: "Initialization Standard Library Integration",
             dependencies: [
-                "Initiable"
+                .target(name: "Initiable")
             ]
         ),
 
         .target(
             name: "Initialization Test Support",
             dependencies: [
-                "Initialization"
+                .target(name: "Initiable")
             ],
-            path: "Tests/Support"
+            path: "Tests/Initialization Test Support"
         ),
 
         .testTarget(
             name: "Initialization Tests",
             dependencies: [
-                "Initialization",
-                "Initialization Standard Library Integration",
-                "Initialization Test Support",
+                .target(name: "Initialization"),
+            ]
+        ),
+        .testTarget(
+            name: "Initialization Protocol Tests",
+            dependencies: [
+                .target(name: "Initialization Protocol"),
+            ]
+        ),
+        .testTarget(
+            name: "Initialization Witness Tests",
+            dependencies: [
+                .target(name: "Initialization Witness"),
+                .target(name: "Initialization Test Support"),
+            ]
+        ),
+        .testTarget(
+            name: "Initiable Tests",
+            dependencies: [
+                .target(name: "Initiable"),
+                .target(name: "Initialization Test Support"),
+            ]
+        ),
+        .testTarget(
+            name: "Initialization Standard Library Integration Tests",
+            dependencies: [
+                .target(name: "Initialization Standard Library Integration"),
+                .target(name: "Initialization Test Support"),
             ]
         ),
     ],
