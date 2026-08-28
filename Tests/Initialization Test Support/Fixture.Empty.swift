@@ -1,8 +1,8 @@
-public import Initialization_Primitives
+public import Initiable
 
 extension Fixture {
 
-    public struct Unique: ~Copyable, Initiable {
+    public struct Empty: Initiable, Equatable {
 
         public var count: Int
 

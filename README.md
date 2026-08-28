@@ -1,4 +1,4 @@
-# Initialization Primitives
+# Initialization
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -11,7 +11,7 @@ The **initialization** operation domain — producing a value from nothing. It p
 Conform any type that has a canonical empty state to `Initiable`, then construct it generically — without the call site knowing the concrete type:
 
 ```swift
-import Initialization_Primitives
+import Initiable
 
 struct Bag {
     var elements: [Int]
@@ -62,8 +62,8 @@ let conn = try Connection()        // fallible — `try` required, typed error
 The *passive* `Initiable` ("I can be made empty") has an *active* counterpart — `Initializing` (`Initialization.\`Protocol\``), a factory that produces a value via `make()`. Hold a type-erased factory as `Initialization.Witness<Element, Failure>`:
 
 ```swift
-import Initialization_Primitives
-import Initialization_Primitives_Standard_Library_Integration   // for Array: Initiable
+import Initiable
+import Initialization_Standard_Library_Integration   // for Array: Initiable
 
 let zero = Initialization.Witness<Int, Never> { 0 }
 zero.make()                        // 0 — reusable, infallible, no `try`
@@ -81,7 +81,7 @@ Initialization is a *relation/value* operation domain, so the namespace is the d
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-initialization-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-initialization.git", branch: "main")
 ]
 ```
 
@@ -89,7 +89,7 @@ dependencies: [
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Initialization Primitives", package: "swift-initialization-primitives"),
+        .product(name: "Initiable", package: "swift-initialization"),
     ]
 )
 ```
@@ -100,17 +100,16 @@ Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 
 
 ## Architecture
 
-The package follows the ecosystem's operation-domain layout (the same one `swift-iterator-primitives` uses), decomposed into focused products with zero external dependencies. Import the umbrella for everything, or a single leaf product for a minimal surface.
+The package follows the ecosystem's operation-domain layout, decomposed into focused products with zero external dependencies. Import the narrowest layer required by the code.
 
 | Product | When to import |
 |---------|----------------|
-| `Initialization Primitives` | The umbrella — the whole domain. Resolves `import Initialization_Primitives` to the namespace, the active `Initializing` protocol, the `Initialization.Witness`, and the passive `Initiable`. |
 | `Initiable` | The passive attachable alone — when you only declare or consume the "can be constructed empty" capability. |
-| `Initialization Primitive` | The `Initialization` namespace enum alone. |
+| `Initialization` | The `Initialization` namespace enum alone. |
 | `Initialization Protocol` | The active `Initialization.\`Protocol\`` producer + its gerund alias `Initializing`. |
-| `Initialization Witness Primitives` | The closure-backed `Initialization.Witness<Element, Failure>`. |
-| `Initialization Primitives Standard Library Integration` | Opt-in `Initiable` conformances for the stdlib growable disciplines (`Array`, `ContiguousArray`, `ArraySlice`, `Set`, `Dictionary`, `String`, `Substring`). Kept out of the umbrella so consumers choose the retroactive conformances. |
-| `Initialization Primitives Test Support` | The `Initiable` conformer fixtures and the generic empty-construction helper, for test targets. |
+| `Initialization Witness` | The closure-backed `Initialization.Witness<Element, Failure>`. |
+| `Initialization Standard Library Integration` | Opt-in `Initiable` conformances for the standard-library growable disciplines (`Array`, `ContiguousArray`, `ArraySlice`, `Set`, `Dictionary`, `String`, `Substring`). |
+| `Initialization Test Support` | The `Initiable` conformer fixtures and the generic empty-construction helper, for test targets. |
 
 `Initiable` is the domain's **passive** (`-able`) attachable, declared at top level — like every passive attachable (`Iterable`, `Parseable`) — because the capability is owned by no single domain: a `Set`, an `Array`, and a `Dictionary` are each `Initiable`, and none owns the protocol. The **active** producer surface lives under the `Initialization` namespace.
 
