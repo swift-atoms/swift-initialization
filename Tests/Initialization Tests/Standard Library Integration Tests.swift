@@ -1,4 +1,4 @@
-import Initialization_Standard_Library_Integration
+import Initialization
 import Initialization_Test_Support
 import Testing
 

@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Initialization", targets: ["Initialization"]),
-        .library(name: "Initialization Standard Library Integration", targets: ["Initialization Standard Library Integration"]),
-        .library(name: "Initialization Foundation Library Integration", targets: ["Initialization Foundation Library Integration"]),
+
+        .library(name: "Initialization Foundation Integration", targets: ["Initialization Foundation Integration"]),
         .library(name: "Initialization Test Support", targets: ["Initialization Test Support"]),
     ],
     dependencies: [],
@@ -25,20 +25,13 @@ let package = Package(
             ],
             path: "Sources/Initialization"
         ),
+        
         .target(
-            name: "Initialization Standard Library Integration",
+            name: "Initialization Foundation Integration",
             dependencies: [
                 .target(name: "Initialization"),
             ],
-            path: "Sources/Initialization Standard Library Integration"
-        ),
-        .target(
-            name: "Initialization Foundation Library Integration",
-            dependencies: [
-                .target(name: "Initialization"),
-                .target(name: "Initialization Standard Library Integration"),
-            ],
-            path: "Sources/Initialization Foundation Library Integration"
+            path: "Sources/Initialization Foundation Integration"
         ),
         .target(
             name: "Initialization Test Support",
@@ -52,8 +45,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Initialization"),
                 .target(name: "Initialization Test Support"),
-                .target(name: "Initialization Standard Library Integration"),
-                .target(name: "Initialization Foundation Library Integration"),
+                .target(name: "Initialization Foundation Integration"),
             ],
             path: "Tests/Initialization Tests"
         ),
