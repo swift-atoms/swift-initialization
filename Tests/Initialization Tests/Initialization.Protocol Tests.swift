@@ -1,4 +1,4 @@
-import Initialization_Protocol
+import Initialization
 import Testing
 
 @Suite

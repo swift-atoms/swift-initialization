@@ -1,4 +1,4 @@
-public import Initiable
+public import Initialization
 
 public enum Fixture {}
 
