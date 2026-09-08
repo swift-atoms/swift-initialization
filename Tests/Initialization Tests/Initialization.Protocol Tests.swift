@@ -2,7 +2,7 @@ import Initialization
 import Testing
 
 @Suite
-struct `Initialization Protocol Tests` {
+struct `Initialization conformers produce values through the generic protocol` {
     @Test
     func `a conforming producer works through the generic protocol surface`() {
         #expect(produce(Fixture()) == 0)

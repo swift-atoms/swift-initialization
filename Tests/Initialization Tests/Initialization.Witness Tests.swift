@@ -2,13 +2,13 @@ import Initialization_Test_Support
 import Testing
 
 @Suite
-struct `Initialization.Witness Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Initializer witnesses preserve produced values and typed failures` {
+    @Suite struct `Infallible initializer witnesses produce reusable values and remain copyable` {}
+    @Suite struct `Fallible initializer witnesses propagate their declared errors` {}
+    @Suite struct `Initializer witnesses and protocol aliases support custom and noncopyable producers` {}
 }
 
-extension `Initialization.Witness Tests`.Unit {
+extension `Initializer witnesses preserve produced values and typed failures`.`Infallible initializer witnesses produce reusable values and remain copyable` {
 
     @Test
     func `an infallible witness produces its value with no try`() {
@@ -35,7 +35,7 @@ extension `Initialization.Witness Tests`.Unit {
     }
 }
 
-extension `Initialization.Witness Tests`.`Edge Case` {
+extension `Initializer witnesses preserve produced values and typed failures`.`Fallible initializer witnesses propagate their declared errors` {
 
     @Test
     func `a fallible witness propagates its typed error`() {
@@ -49,7 +49,7 @@ extension `Initialization.Witness Tests`.`Edge Case` {
     }
 }
 
-extension `Initialization.Witness Tests`.Integration {
+extension `Initializer witnesses preserve produced values and typed failures`.`Initializer witnesses and protocol aliases support custom and noncopyable producers` {
 
     @Test
     func `the witness type-erases a conforming factory`() {

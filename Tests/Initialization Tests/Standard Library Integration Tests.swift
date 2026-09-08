@@ -3,13 +3,13 @@ import Initialization_Test_Support
 import Testing
 
 @Suite
-struct `Standard Library Integration Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Standard collections construct empty values through initialization protocols` {
+    @Suite struct `Growable standard collections construct empty values from their types` {}
+    @Suite struct `No standard collection initialization boundary cases are defined` {}
+    @Suite struct `Standard collection initializer witnesses produce fresh empty values` {}
 }
 
-extension `Standard Library Integration Tests`.Unit {
+extension `Standard collections construct empty values through initialization protocols`.`Growable standard collections construct empty values from their types` {
 
     @Test
     func `the growable collections conform and construct empty from the type alone`() {
@@ -31,7 +31,7 @@ extension `Standard Library Integration Tests`.Unit {
     }
 }
 
-extension `Standard Library Integration Tests`.Integration {
+extension `Standard collections construct empty values through initialization protocols`.`Standard collection initializer witnesses produce fresh empty values` {
 
     @Test
     func `a stdlib conformer's initializer-witness bridge produces a fresh empty value`() {
