@@ -1,1 +1,1 @@
-extension Swift.Array: Initiable {}
+extension Swift::Array: Initiable {}

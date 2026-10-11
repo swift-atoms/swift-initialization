@@ -1,1 +1,1 @@
-extension Swift.Set: Initiable {}
+extension Swift::Set: Initiable {}

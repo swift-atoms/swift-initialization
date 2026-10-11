@@ -1,1 +1,1 @@
-extension Swift.Dictionary: Initiable {}
+extension Swift::Dictionary: Initiable {}

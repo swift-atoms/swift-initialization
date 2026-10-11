@@ -12,7 +12,7 @@ extension Fixture {
 
 extension Fixture.Fallible {
 
-    public enum Failure: Swift.Error, Equatable {
+    public enum Failure: Swift::Error, Equatable {
         case refused
     }
 }

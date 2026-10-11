@@ -9,7 +9,9 @@ struct `Initialization conformers produce values through the generic protocol` {
     }
 }
 
-private struct Fixture: Initializing {
+private struct Fixture: Initializing {}
+
+extension Fixture {
     func make() -> Int { 0 }
 }
 

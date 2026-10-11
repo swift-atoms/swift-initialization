@@ -4,7 +4,7 @@ extension Initialization {
 
         associatedtype Element: ~Copyable
 
-        associatedtype Failure: Swift.Error = Never
+        associatedtype Failure: Swift::Error = Never
 
         borrowing func make() throws(Failure) -> Element
     }

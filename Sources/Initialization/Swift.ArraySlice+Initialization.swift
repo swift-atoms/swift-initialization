@@ -1,1 +1,1 @@
-extension Swift.ArraySlice: Initiable {}
+extension Swift::ArraySlice: Initiable {}

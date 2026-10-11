@@ -1,6 +1,6 @@
 extension Initialization {
 
-    public struct Witness<Element, Failure: Swift.Error>: Initialization.`Protocol` {
+    public struct Witness<Element, Failure: Swift::Error>: Initialization.`Protocol` {
         @usableFromInline
         internal let _make: () throws(Failure) -> Element
 

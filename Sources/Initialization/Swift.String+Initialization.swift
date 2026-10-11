@@ -1,1 +1,1 @@
-extension Swift.String: Initiable {}
+extension Swift::String: Initiable {}

@@ -1,1 +1,1 @@
-extension Swift.Substring: Initiable {}
+extension Swift::Substring: Initiable {}

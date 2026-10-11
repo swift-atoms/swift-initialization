@@ -1,1 +1,1 @@
-extension Swift.ContiguousArray: Initiable {}
+extension Swift::ContiguousArray: Initiable {}

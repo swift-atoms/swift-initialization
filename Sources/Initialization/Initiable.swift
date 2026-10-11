@@ -1,6 +1,6 @@
 public protocol Initiable: ~Copyable {
 
-    associatedtype Failure: Swift.Error = Never
+    associatedtype Failure: Swift::Error = Never
 
     init() throws(Failure)
 }
