@@ -1,14 +1,23 @@
 import Initialization_Test_Support
 import Testing
 
-@Suite
-struct `Initializer witnesses preserve produced values and typed failures` {
+enum `Initialization.Witness Tests` {}
+
+extension `Initialization.Witness Tests` {
+    @Suite
+    struct `Initializer witnesses preserve produced values and typed failures` {
+    }
+}
+
+extension `Initialization.Witness Tests`.`Initializer witnesses preserve produced values and typed failures` {
     @Suite struct `Infallible initializer witnesses produce reusable values and remain copyable` {}
+
     @Suite struct `Fallible initializer witnesses propagate their declared errors` {}
+
     @Suite struct `Initializer witnesses and protocol aliases support custom and noncopyable producers` {}
 }
 
-extension `Initializer witnesses preserve produced values and typed failures`.`Infallible initializer witnesses produce reusable values and remain copyable` {
+extension `Initialization.Witness Tests`.`Initializer witnesses preserve produced values and typed failures`.`Infallible initializer witnesses produce reusable values and remain copyable` {
 
     @Test
     func `an infallible witness produces its value with no try`() {
@@ -35,7 +44,7 @@ extension `Initializer witnesses preserve produced values and typed failures`.`I
     }
 }
 
-extension `Initializer witnesses preserve produced values and typed failures`.`Fallible initializer witnesses propagate their declared errors` {
+extension `Initialization.Witness Tests`.`Initializer witnesses preserve produced values and typed failures`.`Fallible initializer witnesses propagate their declared errors` {
 
     @Test
     func `a fallible witness propagates its typed error`() {
@@ -49,7 +58,7 @@ extension `Initializer witnesses preserve produced values and typed failures`.`F
     }
 }
 
-extension `Initializer witnesses preserve produced values and typed failures`.`Initializer witnesses and protocol aliases support custom and noncopyable producers` {
+extension `Initialization.Witness Tests`.`Initializer witnesses preserve produced values and typed failures`.`Initializer witnesses and protocol aliases support custom and noncopyable producers` {
 
     @Test
     func `the witness type-erases a conforming factory`() {

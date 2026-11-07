@@ -1,11 +1,15 @@
 import Initialization
 import Testing
 
-@Suite
-struct `Initialization conformers produce values through the generic protocol` {
-    @Test
-    func `a conforming producer works through the generic protocol surface`() {
-        #expect(produce(Fixture()) == 0)
+enum `Initialization.Protocol Tests` {}
+
+extension `Initialization.Protocol Tests` {
+    @Suite
+    struct `Initialization conformers produce values through the generic protocol` {
+        @Test
+        func `a conforming producer works through the generic protocol surface`() {
+            #expect(produce(Fixture()) == 0)
+        }
     }
 }
 

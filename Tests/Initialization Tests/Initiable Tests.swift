@@ -1,15 +1,25 @@
 import Initialization_Test_Support
 import Testing
 
-@Suite
-struct `Initiable values construct empty instances through direct and generic initialization` {
+enum `Initiable Tests` {}
+
+extension `Initiable Tests` {
+    @Suite
+    struct `Initiable values construct empty instances through direct and generic initialization` {
+    }
+}
+
+extension `Initiable Tests`.`Initiable values construct empty instances through direct and generic initialization` {
     @Suite struct `Copyable Initiable values construct empty instances directly and generically` {}
+
     @Suite struct `Noncopyable Initiable values construct empty instances directly and generically` {}
+
     @Suite struct `An initialized growable value starts empty and accepts later elements` {}
+
     @Suite(.serialized) struct `Repeated initialization preserves the empty value` {}
 }
 
-extension `Initiable values construct empty instances through direct and generic initialization`.`Copyable Initiable values construct empty instances directly and generically` {
+extension `Initiable Tests`.`Initiable values construct empty instances through direct and generic initialization`.`Copyable Initiable values construct empty instances directly and generically` {
 
     @Test
     func `Copyable conformer constructs its empty value via init`() {
@@ -24,7 +34,7 @@ extension `Initiable values construct empty instances through direct and generic
     }
 }
 
-extension `Initiable values construct empty instances through direct and generic initialization`.`Noncopyable Initiable values construct empty instances directly and generically` {
+extension `Initiable Tests`.`Initiable values construct empty instances through direct and generic initialization`.`Noncopyable Initiable values construct empty instances directly and generically` {
 
     @Test
     func `move-only conformer constructs its empty value via init`() {
@@ -39,7 +49,7 @@ extension `Initiable values construct empty instances through direct and generic
     }
 }
 
-extension `Initiable values construct empty instances through direct and generic initialization`.`An initialized growable value starts empty and accepts later elements` {
+extension `Initiable Tests`.`Initiable values construct empty instances through direct and generic initialization`.`An initialized growable value starts empty and accepts later elements` {
 
     @Test
     func `a growable discipline starts empty then grows via its own mutation`() {
@@ -51,7 +61,7 @@ extension `Initiable values construct empty instances through direct and generic
     }
 }
 
-extension `Initiable values construct empty instances through direct and generic initialization`.`Repeated initialization preserves the empty value` {
+extension `Initiable Tests`.`Initiable values construct empty instances through direct and generic initialization`.`Repeated initialization preserves the empty value` {
 
     @Test
     func `repeated empty construction stays correct under load`() {

@@ -1,14 +1,23 @@
 import Initialization_Test_Support
 import Testing
 
-@Suite
-struct `Initiable bridges produce initializer witnesses with preserved failure types` {
+enum `Initiable.Bridge Tests` {}
+
+extension `Initiable.Bridge Tests` {
+    @Suite
+    struct `Initiable bridges produce initializer witnesses with preserved failure types` {
+    }
+}
+
+extension `Initiable.Bridge Tests`.`Initiable bridges produce initializer witnesses with preserved failure types` {
     @Suite struct `Initializer witness bridges construct fresh empty values` {}
+
     @Suite struct `Fallible initialization preserves typed errors through factories and witnesses` {}
+
     @Suite struct `No initializer witness bridge integration cases are defined` {}
 }
 
-extension `Initiable bridges produce initializer witnesses with preserved failure types`.`Initializer witness bridges construct fresh empty values` {
+extension `Initiable.Bridge Tests`.`Initiable bridges produce initializer witnesses with preserved failure types`.`Initializer witness bridges construct fresh empty values` {
 
     @Test
     func `a Copyable Initiable yields a canonical initializer witness`() {
@@ -26,7 +35,7 @@ extension `Initiable bridges produce initializer witnesses with preserved failur
     }
 }
 
-extension `Initiable bridges produce initializer witnesses with preserved failure types`.`Fallible initialization preserves typed errors through factories and witnesses` {
+extension `Initiable.Bridge Tests`.`Initiable bridges produce initializer witnesses with preserved failure types`.`Fallible initialization preserves typed errors through factories and witnesses` {
 
     @Test
     func `a fallible conformer requires try and surfaces its typed error`() {
